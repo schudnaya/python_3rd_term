@@ -31,21 +31,18 @@ def load_params(config_file='settings.ini'):
 
     возвращает значение epsilon из файла или 0.0001 по умолчанию
     """
-    try:
-        config = configparser.ConfigParser()
-        config.read(config_file)
+    config = configparser.ConfigParser()
+    config.read(config_file)
 
-        epsilon_str = config.get('SETTINGS', 'epsilon', fallback='0.0001')
-        epsilon = float(epsilon_str)
+    epsilon_str = config.get('SETTINGS', 'epsilon', fallback='0.0001')
+    epsilon = float(epsilon_str)
 
         # проверяем, что epsilon в допустимом диапазоне
-        if 10 ** -9 < epsilon < 10 ** -1:
-            return epsilon
-        else:
-            return 0.0001
-
-    except (FileNotFoundError, ValueError, configparser.Error):
+    if 10 ** -9 < epsilon < 10 ** -1:
+        return epsilon
+    else:
         return 0.0001
+
 
 # ввод операндов
 try:
