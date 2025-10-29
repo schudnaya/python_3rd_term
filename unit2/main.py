@@ -107,6 +107,6 @@ result = calculate(operand1, operand2, epsilon)
 
 # Вывод результата
 if result is None:
-    print("На ноль делить нельзя! >:C")
+    print("Что-то пошло не так :(")
 else:
     print(f"Результат деления: {operand1} / {operand2} = {result}")
